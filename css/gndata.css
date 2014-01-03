@@ -1,0 +1,168 @@
+@font-face {
+    font-family: "PakExp";
+    font-style: normal;
+    font-weight: normal;
+    font-stretch: normal;    
+    src: url("../fonts/pakenham_xp_rg-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/pakenham_xp_rg-webfont.woff") format("woff"), url("../fonts/pakenham_xp_rg-webfont.ttf") format("truetype"), url("../fonts/pakenham_xp_rg-webfont.svg#PakExp") format("svg");
+}
+
+@font-face {
+    font-family: "PTSansRegular";
+    font-style: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    src: url("../fonts/PTS55F-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/PTS55F-webfont.woff") format("woff"), url("../fonts/PTS55F-webfont.ttf") format("truetype"), url("../fonts/PTS55F-webfont.svg#PTSansRegular") format("svg");
+}
+
+/* override fonts */
+body {
+    font-family: "PTSansRegular",serif;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: rgb(96, 97, 89);
+    background-color: rgb(255, 255, 255);
+    padding-top: 80px;
+}
+
+h1, h2, h3, h4 {
+    font-family: "PTSansRegular";
+}
+
+.btn-group {
+    bottom: 15px;
+    position: relative;
+    top: 15px;
+    xmargin-left: 160px;
+}
+
+/* fonts for dc text */
+.table-data,
+.dc-chart g.row text,
+.dc-chart .axis text,
+.dc-chart .x.axis text,
+.dc-chart .y.axis text
+{
+    font-family: "PakExp";
+}
+
+.table-data {
+    text-align: right;
+    font-family: monospace;
+    font-size: 12px;
+}
+
+.table-data thead {
+    text-align: center;
+    background-color: #333333;
+    color: #f0027f;
+    color: #fed097;
+}
+
+/* testing out d3 tooltip */
+.d3-tip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 8px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+}
+
+.tip-label {
+    color: #FF6F69;
+}
+
+.chart-title {
+    font-size: 18px;
+    letter-spacing: 1px;
+    line-height: 20px;
+    text-transform: Uppercase;
+    text-align: center;
+    display: block;
+    color: #101010;;
+    margin: 10px 0 15px 0;
+}
+.reset {
+    display: block;
+    font-size: 12px;
+    text-transform: lowercase;
+    color: #FF6F69;
+}
+/*h3 {
+    xfont-family: 'Helvetica Neue';
+    font-size: 24px;
+    font-weight: 300;
+}*/
+
+.var-data {
+    background-color: #FF6F69;
+    color: #000;
+    font-size: 24px;
+    text-transform: Uppercase;
+}
+
+.twitter {
+    font-size: 14px;
+    font-weight: 300;
+    text-align: right;
+    color: #525252;
+    padding-left: 160px;
+}
+
+
+
+.help {
+    color: #525252;
+    font-size: 14px;
+}
+
+.helpb {
+    font-size: 32px;
+    float: left;
+    padding-right: 5px;
+}
+
+/* fix modal on iphone */
+@media (max-width: 480px) {
+    body {
+        padding-top: 120px;
+    }
+    .modal {
+        position: fixed;
+        top: 3%;
+        right: 3%;
+        left: 3%;
+        bottom: 3%;
+        width: auto;
+        margin: 0;
+    }
+    .modal-body {
+        max-height: 350px;
+        padding: 15px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+
+

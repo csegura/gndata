@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Presupuestos del Gobierno de Navarra (2010-2013)- Info</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/dc.css"/>
+    <link rel="stylesheet" type="text/css" href="css/gndata.css"/>
+
+<style>
+
+    .ct-chart {
+        display: block;
+        margin: auto;
+        margin-top: 60px;
+    }
+
+    .node {
+        cursor: pointer;
+    }
+
+    .node:hover {
+        stroke: #000;
+        stroke-width: 1.5px;
+    }
+
+    .node--root {
+        stroke: #777;
+        stroke-width: 2px;
+    }
+
+    .node--leaf {
+        fill: #ADD9AC;
+    }
+
+    .zcp-label {
+        font: 12px;
+        text-anchor: middle;
+        text-shadow: 0 1px 0 #888, 1px 0 0 #888, -1px 0 0 #888, 0 -1px 0 #888;
+    }
+
+    .zcp-label,
+    .node--root,
+    .node--leaf {
+        pointer-events: none;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Fixed navbar -->
+<div class="navbar navbar-fixed-top navbar-default">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Presupuestos del Gobierno de Navarra 2010 - 2013</a>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a target="_blank" href="http://twitter.com/romheat" title="@romheat">@romheat</a></li>
+            <li><a href="mas.html">Volver</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- main container -->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-lg-12 col-sm-12">
+            <h2>Presupuestos por area funcional - Empaquetado de circulos</h2>
+            <p>
+                Cada circulo representa las distintas areas funcionales en que esán divididos los presupuestos, el
+                tamaño de cada curculo representa el presupuesto del mismo. Se puede hacer click para bucear dentro del
+                presupuesto.
+            </p>
+            <p>
+                - Seleccione el año que desea explorar.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-lg-12 col-sm-12">
+            <div class="btn-group " data-toggle="buttons">
+                <label class="btn btn-default">
+                    <input type="radio" name="years" id="load2011" value="2011"/> 2011
+                </label>
+                <label class="btn btn-default">
+                    <input type="radio" name="years" id="load2013" value="2013"/> 2013
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12">
+            <div id="chart">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="javascript/jquery.js"></script>
+<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
+<script type="text/javascript" src="javascript/d3.min.js"></script>
+<script type="text/javascript" src="javascript/circulos.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Presupuestos del Gobierno de Navarra (2010-2013)- Info</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/dc.css"/>
+    <link rel="stylesheet" type="text/css" href="css/gndata.css"/>
+
+<style>
+    .ct-chart {
+        display: block;
+        margin: auto;
+        margin-top: 60px;
+    }
+
+    rect {
+        stroke: #eee;
+        fill: #aaa;
+        fill-opacity: .8;
+    }
+
+    rect.ct-parent {
+        stroke: #eee;
+        cursor: pointer;
+        fill: #d88c8b;
+    }
+    rect.ct-child {
+        fill: #eecfe0;
+    }
+
+    text {
+        pointer-events: none;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Fixed navbar -->
+<div class="navbar navbar-fixed-top navbar-default">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Presupuestos del Gobierno de Navarra 2010 - 2013</a>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a target="_blank" href="http://twitter.com/romheat" title="@romheat">@romheat</a></li>
+            <li><a href="mas.html">Volver</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- main container -->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-lg-12 col-sm-12">
+            <h2>Presupuestos por centro gestor</h2>
+            <p>
+                Podemos que departamentos gestionan las principales areas de gestión.
+            </p>
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default active">
+                    <input type="radio" name="sel" id="impNo" value="0"/> Veces
+                </label>
+                <label class="btn btn-default">
+                    <input type="radio" name="sel" id="impSi" value="1"/> Importes
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-12">
+            <div id="chart">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="javascript/jquery.js"></script>
+<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
+<script type="text/javascript" src="javascript/d3.min.js"></script>
+<script type="text/javascript" src="javascript/cuerdas.js"></script>
+
+</body>
+</html>

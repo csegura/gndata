@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Presupuestos del Gobierno de Navarra (2010-2013)- Info</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/dc.css"/>
+    <link rel="stylesheet" type="text/css" href="css/gndata.css"/>
+
+</head>
+
+<body>
+
+<!-- Fixed navbar -->
+<div class="navbar navbar-fixed-top navbar-default">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Presupuestos del Gobierno de Navarra 2010 - 2013</a>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a target="_blank" href="http://twitter.com/romheat" title="@romheat">@romheat</a></li>
+                <li><a href="index.html">Volver</a> </li>
+            </ul>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="masInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                <h4 class="modal-title">Más</h4>
+            </div>
+            <div class="modal-body">
+                <h4 class="modal-title">Los datos</h4>
+                <p>
+                    Los datos se han obtenido del Gobierno de Navarra (<a target="_blank"
+                                                                          href="http://gobiernoabierto.navarra.es/">Gobierno abierto / open-data</a>).
+                    se han procesado relacionando las Areas Funcionales, los Centros Gestores y las partidas ecónomicas.
+                    El GN de Navarra suministra estos datos en distintos formatos (csv, excel, ods), algunos datos de los centros gestores no se han podido relacionar por lo que aparecen en esta página como N/A.
+                </p>
+                <p>
+                    Puede descargarse los datos usados en esta web en formato csv <a href="data/gndata.csv">aquí</a>
+                </p>
+                <hr>
+                <h4 class="modal-title">Técnologia</h4>
+                <p>
+                    <a target="_blank" href="http://getbootstrap.com/">Bootstrap 3</a> es una colección de herramientas de software libre para la creación de sitios y aplicaciones web<br/>
+                    <a target="_blank" href="http://d3js.org/">d3.js</a> biblioteca para manipular documentos basados en datos.<br/>
+                    <a target="_blank" href="">dc.js</a> biblioteca con soporte de filtros que permite la manipulación de datos multidimensionales.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.modal -->
+
+<!-- main container -->
+<div class="container">
+    <div class="row">
+        <div id="div-help" class="col-xs-12 col-lg-12 col-sm-12">
+            <h4>Los Datos</h4>
+            <p>
+                Los datos se han obtenido del Gobierno de Navarra (<a target="_blank"
+                                                                      href="http://gobiernoabierto.navarra.es/">Gobierno abierto / open-data</a>).
+                se han procesado relacionando las áreas funcionales, los centros gestores y las partidas ecónomicas.
+                El GN de Navarra suministra estos datos en distintos formatos (csv, excel, ods), algunos datos de los centros gestores no se han podido relacionar por lo que aparecen en esta página como N/A.
+            </p>
+            <p>
+                Puede descargarse los datos usados en esta web en formato csv <a href="data/gndata.csv">aquí</a>
+            </p>
+            <hr>
+            <h4>Técnologia</h4>
+            <p>
+                <a target="_blank" href="http://getbootstrap.com/">Bootstrap 3</a> es una colección de herramientas de software libre para la creación de sitios y aplicaciones web<br/>
+                <a target="_blank" href="http://d3js.org/">d3.js</a> biblioteca para manipular documentos basados en datos.<br/>
+                <a target="_blank" href="">dc.js</a> biblioteca con soporte de filtros que permite la manipulación de datos multidimensionales.
+            </p>
+            <hr>
+            <h4>Ensayos</h4>
+            <p>
+            </p>
+            <ul>
+                <li><a href="circulos.html">Empaquetado de circulos</a></li>
+                <li><a href="mapa.html">Descomposición (TreeMap)</a></li>
+                <li><a href="cuerdas.html">Relaciones (Chord)</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="javascript/jquery.js"></script>
+<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
+<script type="text/javascript" src="javascript/d3.min.js"></script>
+<script type="text/javascript" src="javascript/crossfilter.js"></script>
+<script type="text/javascript" src="javascript/dc.js"></script>
+<script type="text/javascript" src="javascript/d3.tip.js"></script>
+<script type="text/javascript" src="javascript/gndata.js"></script>
+
+</body>
+</html>

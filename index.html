@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Presupuestos del Gobierno de Navarra (2010-2013)- Iteractivo</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="css/dc.css"/>
+    <link rel="stylesheet" type="text/css" href="css/gndata.css"/>
+
+</head>
+
+<body>
+
+<!-- Fixed navbar -->
+<div class="navbar navbar-fixed-top navbar-default">
+    <div class="container">
+        <a class="navbar-brand" href="#">Presupuestos del Gobierno de Navarra 2010 - 2013</a>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a target="_blank" href="http://twitter.com/romheat" title="@romheat">@romheat</a></li>
+                <li><a href="mas.html" title="Más información">Más</a></li>
+                <!--<li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Más <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a data-toggle="modal" data-target="#masInfo">Los datos</a></li>
+                        <li><a href="#">Más</a></li>
+                        <li class="divider"></li>
+                        <li class="dropdown-header">Links</li>
+                        <li><a href="#">D3</a></li>
+                        <li><a href="#">DC</a></li>
+                    </ul>
+                </li>-->
+            </ul>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="masInfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" >&times;</button>
+                <h4 class="modal-title">Más</h4>
+            </div>
+            <div class="modal-body">
+                <h4 class="modal-title">Los datos</h4>
+                <p>
+                    Los datos se han obtenido del Gobierno de Navarra (<a target="_blank"
+                                                                          href="http://gobiernoabierto.navarra.es/">Gobierno abierto / open-data</a>).
+                    se han procesado relacionando las Areas Funcionales, los Centros Gestores y las partidas ecónomicas.
+                    El GN de Navarra suministra estos datos en distintos formatos (csv, excel, ods), algunos datos de los centros gestores no se han podido relacionar por lo que aparecen en esta página como N/A.
+                </p>
+                <p>
+                    Puede descargarse los datos usados en esta web en formato csv <a href="data/gndata.csv">aquí</a>
+                </p>
+                <hr>
+                <h4 class="modal-title">Técnologia</h4>
+                <p>
+                    <a target="_blank" href="http://getbootstrap.com/">Bootstrap 3</a> es una colección de herramientas de software libre para la creación de sitios y aplicaciones web<br/>
+                    <a target="_blank" href="http://d3js.org/">d3.js</a> biblioteca para manipular documentos basados en datos.<br/>
+                    <a target="_blank" href="">dc.js</a> biblioteca con soporte de filtros que permite la manipulación de datos multidimensionales.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.modal -->
+
+<!-- main container -->
+<div class="container" id="c-gastos">
+    <div class="row">
+        <div id="div-help" class="col-xs-12 col-lg-6 col-sm-6">
+            <p class="help">
+                <span class="helpb b1">➊</span> Seleccionando el año, podrá ver la dedicación del presupuesto por año.
+                <!--➊ ➋ ➌ ➍ ➎ ➏ ➐ ➑ ➒ ➓-->
+            </p>
+            <p class="help">
+                <span class="helpb b2">➋</span> Seleccionando una o más funciones puede ver en el cuadro resumén su evolución,
+                puede seleccionar más de una. También se filtrarán los centros que gestionan dichas funciones.
+            </p>
+        </div>
+        <div id="div-anyo" class="col-xs-12 col-lg-6 col-sm-6">
+            <span class="chart-title">Seleccione el Año</span>
+            <input id="sliderAnyo" type="range" style="width:100%" min="2010" value="2013" max="2013">
+            <span style="float:left">Presupuestos del año: <span id="labelAnyo" class="filter">2013</span></span>
+
+            <br>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div id="graficoPorFuncion" class="col-xs-12 col-lg-6 col-sm-6">
+            <span class="chart-title">&nbsp;&nbsp;&nbsp;Dedicación del presupuesto (función)
+                <br>&nbsp;&nbsp;&nbsp;(seleccione para ver importes)
+            <a class="reset"
+               href="javascript:gastosPorFuncionRC.filterAll('c-gastos');dc.redrawAll('c-gastos');"
+               style="visibility: hidden;">limpiar filtro ➞ funciones</a>
+            </span>
+            <div class="clearfix"></div>
+        </div>
+        <div id="graficoPorAnyo" class="col-xs-12 col-lg-6 col-sm-6">
+            <h4 class="chart-title">Tabla Resumén</h4>
+            <table class="table table-condensed table-data">
+                <thead>
+                <tr>
+                    <td>Año</td>
+                    <td>Total Presupuesto</td>
+                    <td>% Seleccionado</td>
+                    <td>Ppto Seleccionado</td>
+                    <td>Variación año anterior</td>
+                </tr>
+                </thead>
+                <tr>
+                    <td>2010</td>
+                    <td><span id="anyo2010val" class=""></span></td>
+                    <td><span id="anyo2010pct" class=""></span></td>
+                    <td><span id="anyo2010imp" class=""></span></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>2011</td>
+                    <td><span id="anyo2011val" class=""></span></td>
+                    <td><span id="anyo2011pct" class=""></span></td>
+                    <td><span id="anyo2011imp" class=""></span></td>
+                    <td><span id="anyo2011var" class=""></span></td>
+                </tr>
+                <tr>
+                    <td>2012</td>
+                    <td><span id="anyo2012val" class=""></span></td>
+                    <td><span id="anyo2012pct" class=""></span></td>
+                    <td><span id="anyo2012imp" class=""></span></td>
+                    <td><span id="anyo2012var" class=""></span></td>
+                </tr>
+                <tr>
+                    <td>2013</td>
+                    <td><span id="anyo2013val" class=""></span></td>
+                    <td><span id="anyo2013pct" class=""></span></td>
+                    <td><span id="anyo2013imp" class=""></span></td>
+                    <td><span id="anyo2013var" class=""></span></td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        Diferencia % 2010 - 2013
+                    </td>
+                    <td colspan="2">
+                        <span id="anyo2010var" class="var-data"></span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <BR>
+    </div>
+    <div class="row">
+        <div id="graficoPorCentroGestor" class="col-xs-12 col-lg-12 col-sm-12">
+                  <h4 class="chart-title">Presupuesto por Centro Gestor</h4>
+            <a class="reset" href="javascript:gastosPorGestorRC.filterAll('c-gastos');dc.redrawAll('c-gastos');"
+               style="visibility: hidden;">limpiar filtro</a>
+
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+    <div class="row">
+        <BR>
+    </div>
+    <div class="row">
+        <div>
+            <div class="dc-data-count" class="col-xs-12 col-lg-12 col-sm-12">
+                <span class="filter-count"></span> de <span class="total-count"></span> registros
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="javascript/jquery.js"></script>
+<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
+<script type="text/javascript" src="javascript/d3.min.js"></script>
+<script type="text/javascript" src="javascript/crossfilter.js"></script>
+<script type="text/javascript" src="javascript/dc.js"></script>
+<script type="text/javascript" src="javascript/d3.tip.js"></script>
+<script type="text/javascript" src="javascript/gndata.js"></script>
+
+</body>
+</html>
